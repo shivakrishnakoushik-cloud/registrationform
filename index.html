@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Event Registration</h2>
+
+    <form id="registrationForm">
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter phone number">
+
+        <label for="event">Select Event:</label>
+        <select id="event">
+            <option value="">-- Select Event --</option>
+            <option value="Tech Conference">Tech Conference</option>
+            <option value="Coding Workshop">Coding Workshop</option>
+            <option value="AI Seminar">AI Seminar</option>
+        </select>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p id="message"></p>
+
+</div>
+
+<script>
+
+    const form = document.getElementById("registrationForm");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const selectedEvent = document.getElementById("event").value;
+
+        const message = document.getElementById("message");
+
+        if (name === "" || email === "" || phone === "" || selectedEvent === "") {
+            message.textContent = "Please fill all the fields.";
+            return;
+        }
+
+        message.textContent =
+            "Registration successful! Welcome " + name + ".";
+
+    });
+
+</script>
+
+</body>
+</html>
